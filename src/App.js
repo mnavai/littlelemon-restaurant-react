@@ -1,5 +1,5 @@
 import './App.css';
-//just adding comment to test
+//App - starting point
 function App() {
   return (
     <div className="App">
@@ -7,5 +7,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
