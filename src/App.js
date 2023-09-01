@@ -1,7 +1,6 @@
 import React from 'react';
 import Home from './pages/Home';
-import Booking from './pages/Booking';
-import ConfirmedBooking from './pages/ConfirmedBooking';
+import Booking from './component/Booking';
 import NotFound from './pages/NotFound';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -12,7 +11,6 @@ const App =  () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/booking' element={<Booking />} />
-        <Route path='/confirmedbooking' element={<ConfirmedBooking />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
