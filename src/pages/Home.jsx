@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "../component/Nav"
 import Hero from '../component/Hero';
 import Testimonials from '../component/Testimonials';
-import About from '../pages/About';
+import About from './About';
 import Footer from '../component/Footer';
 
 const Home = () => {
@@ -16,4 +16,4 @@ const Home = () => {
         </div>
     );
 }
-export default Nav;
+export default Home;
