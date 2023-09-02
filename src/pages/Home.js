@@ -1,9 +1,7 @@
 import React from "react";
 import Nav from "../component/Navigation/Nav";
 import Header from "../component/Header/Header";
-import Hero from '../component/Hero/Hero';
-import Testimonials from '../component/Testimonials';
-import About from '../component/About';
+import Highlights from '../component/Highlights/Highlights';
 import Footer from '../component/Footer/Footer';
 import '../App.css';
 
@@ -12,9 +10,7 @@ const Home = () => {
         <div className="home-page">
             <Nav></Nav>
             <Header></Header>
-            <Hero></Hero>
-            <Testimonials></Testimonials>
-            <About></About>
+            <Highlights></Highlights>
             <Footer></Footer>
         </div>
     );

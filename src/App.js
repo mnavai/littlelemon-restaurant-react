@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from './pages/Home';
-import Booking from './component/Booking';
+import Booking from './component/Booking/Booking';
 import NotFound from './pages/NotFound';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';

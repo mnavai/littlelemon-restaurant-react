@@ -1,5 +1,17 @@
 .header-section {
     background-color: #495e57;
-    height: 500px;
+    height: 300px;
     width: 100%;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    width: 100vw;
+}
+.header-heading{
+    color:#f4ce14;
+}
+.header-subheading{
+    color: #fff
+}
+.header-text{
+    color: #fff
 }
