@@ -1,5 +1,14 @@
 .highlights-section{
     display: flex;
+    flex-direction: column;
     background-color: white;
     height: 400px;
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
+.highlights-top-section {
+    display: flex;
+}
+.highlights-card{
+    display: flex;
 }
