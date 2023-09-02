@@ -5,3 +5,21 @@
     border-radius: 20px;
     width: 32%;
 }
+.card-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+.card-text{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.card-heading{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.card-img{
+    margin: 1rem;
+}

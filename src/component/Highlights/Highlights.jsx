@@ -22,7 +22,8 @@ const Highlights = () => {
                 <Card className='card'
                       src=''  
                       title='Bruchetta'
-                      price='Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil; made perfect for an evening dinner.'></Card>
+                      price='$5.99'
+                      text='Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil; made perfect for an evening dinner.'></Card>
                 <Card className='card'
                       arc='little-lemon-restaurant/icons_assets/lemon dessert.jpg'
                       alt='Lemon Desert'  
