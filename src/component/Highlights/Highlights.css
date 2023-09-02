@@ -1,14 +1,21 @@
 .highlights-section{
     display: flex;
     flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
     background-color: white;
     width: 90%;
-    margin: 2rem;
+    margin: 1rem;
+    
 }
 .highlights-top-section {
     display: flex;
+    justify-content: space-between;
+ 
 }
 .highlights-card{
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }

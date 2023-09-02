@@ -2,7 +2,7 @@ import './Footer.css';
 const Footer = () => {
     return (
         <div className="footer-section">
-            <div className="logo">
+            <div className="footer-logo">
                 <img src="icons_assets/" alt="logo"></img>
             </div>
             <div className="doormat-nav">

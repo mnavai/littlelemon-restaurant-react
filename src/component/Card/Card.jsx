@@ -9,7 +9,7 @@ const Card = ({ title, price, text, src, alt }) => {
             </div>
             <div className='card-heading'>
                 <h3 className='card-title'>{title}</h3>
-                <h5>{price}</h5>
+                <h3 className='card-price'>{price}</h3>
             </div>
             <div className='card-text'>
                 <p>{text}</p>

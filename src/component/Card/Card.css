@@ -17,8 +17,18 @@
     margin-right: 1rem;
 }
 .card-heading{
+    display: flex;
+    justify-content: space-between;
     margin-left: 1rem;
     margin-right: 1rem;
+}
+.card-title{
+    color:black;
+    font-weight: bold;
+}
+.card-price{
+    color:orange;
+    font-weight: bold;
 }
 .card-img{
     margin: 1rem;
