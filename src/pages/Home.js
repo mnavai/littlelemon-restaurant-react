@@ -3,7 +3,7 @@ import Nav from "../component/Navigation/Nav"
 import Hero from '../component/Hero';
 import Testimonials from '../component/Testimonials';
 import About from '../component/About';
-import Footer from '../component/Footer';
+import Footer from '../component/Footer/Footer';
 import '../App.css';
 
 const Home = () => {

@@ -1,3 +1,5 @@
-.nav-bar{
+.nav-section{
     background-color: grey;
+    display: flex;
+    flex-direction: row;
 }

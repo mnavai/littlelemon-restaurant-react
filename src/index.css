@@ -14,8 +14,10 @@ code {
 
 .App {
   background-color: aqua;
+  height: 100vh;
 }
 
 .home-page {
-  background-color: aqua;
+  display: flex;
+  flex-direction: column;
 }
