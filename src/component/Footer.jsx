@@ -1,4 +1,3 @@
-import NavLink from "./NavLink"
 
 const Footer = () => {
     return (
@@ -7,12 +6,7 @@ const Footer = () => {
                 <img src="icons_assets/" alt="logo"></img>
             </div>
             <div className="doormat-nav">
-                <NavLink>Home</NavLink>
-                <NavLink>About</NavLink>
-                <NavLink>Menu</NavLink>
-                <NavLink>Reservations</NavLink>
-                <NavLink>Order Online</NavLink>
-                <NavLink>Login</NavLink>
+    
             </div>
             <div className="contact-info">
                 <ul>
@@ -29,7 +23,7 @@ const Footer = () => {
                 </ul>
             </div>
         </div>
-    )
+    );
 }
 
 export default Footer;
