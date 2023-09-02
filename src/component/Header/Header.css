@@ -15,3 +15,13 @@
 .header-text{
     color: #fff
 }
+.header-img{
+    align-items: center;
+    border-radius: 10px;
+    display: flex;
+    height: 500px;
+    justify-content: center;
+    overflow: hidden;
+    position: absolute;
+    top: 30px;
+}
