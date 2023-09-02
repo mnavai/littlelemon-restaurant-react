@@ -1,12 +1,12 @@
-
+import Nav from "./Navigation/Nav";
 const Footer = () => {
     return (
-        <div className="footer">
+        <div className="footer-section">
             <div className="logo">
                 <img src="icons_assets/" alt="logo"></img>
             </div>
             <div className="doormat-nav">
-    
+                <Nav></Nav>
             </div>
             <div className="contact-info">
                 <ul>
@@ -24,6 +24,6 @@ const Footer = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Footer;

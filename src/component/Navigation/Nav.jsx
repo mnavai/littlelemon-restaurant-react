@@ -3,10 +3,10 @@ import './Nav.css';
 
 const Nav = () => {
     return (
-       <nav className="nav-bar">
+       <nav className="nav-section">
             {/* <img src="" alt="logo"></img> */}
             <ul>
-                <li><Link to="/">HOME</Link>HOME</li>
+                <li><Link to="/">HOME</Link></li>
                 <li>ABOUT</li>
                 <li>MENU</li>
                 <li><Link to='/booking'>RESERVATIONS</Link></li>
@@ -15,5 +15,5 @@ const Nav = () => {
             </ul>
        </nav>
     );
-}
+};
 export default Nav;

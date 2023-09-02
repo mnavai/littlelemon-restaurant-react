@@ -4,26 +4,17 @@ import Hero from '../component/Hero';
 import Testimonials from '../component/Testimonials';
 import About from '../component/About';
 import Footer from '../component/Footer';
-import '../App.css'
+import '../App.css';
 
 const Home = () => {
     return (
         <div className="home-page">
-            <div className="nav-section">
-                <Nav></Nav>
-            </div>
-            <div className="hero-section">
-                <Hero></Hero>
-            </div>
-            <div className="testimonial-section">
-                <Testimonials></Testimonials>
-            </div>
-            <div className="about-section">
-                <About></About>
-            </div>
-            <div className="footer-section">
-                <Footer></Footer>
-            </div>
+            <h2>Testing</h2>
+            <Nav></Nav>
+            <Hero></Hero>
+            <Testimonials></Testimonials>
+            <About></About>
+            <Footer></Footer>
         </div>
     );
 }
