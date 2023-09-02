@@ -4,10 +4,10 @@ import './Nav.css';
 const Nav = () => {
     return (
        <nav className="nav-section">
-            <div className="logo">
-                <img src="./icons_assets/logo.svg" alt="logo"></img>
+            <div className="nav-logo">
+                <img src="https://little-lemon-weld.vercel.app/static/media/logo.7aa41df0270b68cbabda.jpg" alt="logo"></img>
             </div>
-            <div className="nav-links">
+            <nav className="nav-links">
                 <ul className="links-list">
                     <li className="link-item"><Link to="/">HOME</Link></li>
                     <li className="link-item">ABOUT</li>
@@ -16,7 +16,7 @@ const Nav = () => {
                     <li>ORDER ONLINE</li>
                     <li>LOGIN</li>
                 </ul>
-            </div>
+            </nav>
        </nav>
     );
 };

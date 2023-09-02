@@ -7,8 +7,15 @@
 }
 .links-list{
     display: flex;
+    gap:25px;
+}
+ul{
+    list-style-type: none;
 }
 .link-item{
     text-decoration: none;
     margin-right: 2rem;
+}
+img {
+    width: 200px;
 }
