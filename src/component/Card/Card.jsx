@@ -1,11 +1,11 @@
 import Button from '../Button/Button';
 import './Card.css';
 
-const Card = ({ title, price, text }) => {
+const Card = ({ title, price, text, src, alt }) => {
     return (
         <div className='card-container'>
             <div className='card-img'>
-                
+                <img src={src} alt={alt} />
             </div>
             <div className='card-heading'>
                 <h3 className='card-title'>{title}</h3>

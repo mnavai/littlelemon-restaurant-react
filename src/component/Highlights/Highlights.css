@@ -3,12 +3,13 @@
     flex-direction: column;
     background-color: white;
     height: 400px;
-    padding-right: 3rem;
-    padding-left: 3rem;
+    width: 90%;
+    margin: auto;
 }
 .highlights-top-section {
     display: flex;
 }
 .highlights-card{
     display: flex;
+    justify-content: space-between;
 }
