@@ -10,7 +10,6 @@ import '../App.css';
 const Home = () => {
     return (
         <div className="home-page">
-            <h2>Testing</h2>
             <Nav></Nav>
             <Header></Header>
             <Hero></Hero>
