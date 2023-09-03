@@ -1,10 +1,14 @@
 .card-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 50% auto;
+    /* Split the card into two rows, with the first taking 50% of the height */
     background-color: #edefee;
     border-radius: 20px;
     width: 500px;
-    padding: 10px;
+    overflow: hidden;
+    /* Hide overflow for the rounded corners */
+    position: relative;
+    /* Establish a positioning context for the image */
 }
 article {
     display: block;
@@ -40,10 +44,7 @@ article {
     overflow: hidden;
     width: 100%;
 }
-
 .card-img img {
     width: 100%;
-    /* Make the image take the full width of the card container */
     height: auto;
-    /* Maintain the image's aspect ratio */
 }
