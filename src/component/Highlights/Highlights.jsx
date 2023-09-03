@@ -5,12 +5,8 @@ const Highlights = () => {
     return (
         <div className="highlights-section">
             <div className='highlights-top-section'>
-                <div className='highlights-heading'>
-                    <h1 className='hightlights-heading'>Specials</h1>
-                </div>
-                <div className='highlights-btn'>
-                    <Button className='btn' type='submit'>Online Menu</Button>
-                </div>
+                <h1 className='hightlights-heading'>Specials</h1>
+                <Button className='btn' type='submit'>Online Menu</Button>
             </div>
             <article className='highlights-card'>
                 <Card className='card'

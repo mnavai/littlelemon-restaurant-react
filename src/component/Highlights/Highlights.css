@@ -4,12 +4,13 @@
     align-items: center; 
     background-color: white;
     width: 100%;
-    margin: 1rem;
+    margin: auto;
 }
 .highlights-top-section {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content:space-between;
+    margin-top: 8rem;
 }
 .hightlights-heading{
     font-family: Markazi Text, serif;
