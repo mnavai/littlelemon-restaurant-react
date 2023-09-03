@@ -32,11 +32,10 @@
 .header-img {
     align-items: center;
     display: flex;
-    height: 500px;
     justify-content: right;
     overflow: hidden;
     position: absolute;
-    top: 100px;
+    top: 150px;
 }
 .header-img img{
     border-radius: 20px;
