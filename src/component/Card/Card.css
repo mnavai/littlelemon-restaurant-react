@@ -27,8 +27,7 @@ article {
 .card-heading{
     display: flex;
     justify-content: space-between;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin: 1rem 1rem 0 1rem;
 }
 .card-title{
     color:black;
