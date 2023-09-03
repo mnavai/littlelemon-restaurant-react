@@ -1,10 +1,22 @@
 .header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #495e57;
     height: 30%;
     width: 90%;
     padding-left: 3rem;
     padding-right: 3rem;
     width: 100vw;
+}
+.header-left {
+    flex: 1;
+}
+.header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 .header-heading{
     color:#f4ce14;
@@ -20,7 +32,7 @@
     border-radius: 10px;
     display: flex;
     height: 500px;
-    justify-content: center;
+    justify-content: right;
     overflow: hidden;
     position: absolute;
     top: 30px;

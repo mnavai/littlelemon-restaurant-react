@@ -3,7 +3,7 @@ import './Card.css';
 
 const Card = ({ title, price, text, src, alt }) => {
     return (
-        <div className='card-container'>
+        <article className='card-container'>
             <div className='card-img'>
                 <img src={src} alt={alt} />
             </div>
@@ -17,7 +17,7 @@ const Card = ({ title, price, text, src, alt }) => {
             <div className='card-btn'>
                 <Button className='btn' type='primary'>Order of Delivery</Button>
             </div>
-        </div>
+        </article>
     );
 }
 export default Card;

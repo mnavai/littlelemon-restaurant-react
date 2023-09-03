@@ -3,7 +3,11 @@
     flex-direction: column;
     background-color: #edefee;
     border-radius: 20px;
-    width: 32%;
+    width: 300px;
+    padding: 10px;
+}
+article {
+    display: block;
 }
 .card-btn{
     display: flex;
@@ -31,5 +35,15 @@
     font-weight: bold;
 }
 .card-img{
-    margin: 1rem;
+    border-radius: 20px 20px 0 0;
+    height: 300px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.card-img img {
+    width: 100%;
+    /* Make the image take the full width of the card container */
+    height: auto;
+    /* Maintain the image's aspect ratio */
 }
