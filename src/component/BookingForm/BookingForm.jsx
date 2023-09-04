@@ -4,7 +4,6 @@ const BookingForm = () => {
     const [date,setDate] = useState('');
     const [number, setNumber] = useState(1);
     const [occasion, setOccasion] = useState("Birthday");
-    const [submit,setSubmitted] = useState(false);
     
     const handleNumberChange = (e) => {
         setNumber(e.target.value)
@@ -15,12 +14,9 @@ const BookingForm = () => {
     const handleOccasionChange = (e) => {
         setOccasion(e.target.value)
     }
-    const handleSubmit = (e) => {
-        e.preventData();
-        setSubmitted(true);
-    }
+
     return (
-        <form className='booking-form' onSubmit={handleSubmit}> 
+        <form className='booking-form'> 
             <label htmlFor="res-date">Choose date</label>
                 <input type="date" id="res-date" onChange={handleDateChange} value={date}></input>
             <label htmlFor="res-time">Choose time</label>
