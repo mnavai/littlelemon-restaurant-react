@@ -30,3 +30,32 @@ code {
 .home-page {
   flex-grow: 1;
 }
+.reservation-wrapper {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, .42), rgba(0, 0, 0, .73)), url(https://user-images.githubusercontent.com/70451928/222874465-67747b54-06d5-44c5-ac95-517f13610466.jpg);
+  background-size: cover;
+  width: 100%;
+}
+.reservation-container {
+  align-items: flex-start;
+  display: flex;
+  gap: 100px;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 80px 0;
+  width: 85%;
+}
+.reservation-text {
+  color: #fff;
+  margin-top: 100px;
+  width: 60%;
+}
+
+.reservation-form {
+  background-color: #fff;
+  border-radius: 10px;
+  color: #333;
+  height: auto;
+  padding: 30px 40px 50px;
+  text-align: left;
+  width: 40%;
+}
