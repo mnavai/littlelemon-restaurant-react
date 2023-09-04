@@ -14,7 +14,7 @@ const BookingPage = () => {
                         <p>Book a table with us to share in this experience.</p>
                     </div>
                     <div className="reservation-form">
-                        <h1>Reserve a tabale</h1>
+                        <h1>Reserve a table</h1>
                         <p>Please fill in and submit form to book your reservation at Little Lemon.</p>
                         <BookingForm></BookingForm>
                     </div>
