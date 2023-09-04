@@ -4,6 +4,14 @@ const BookingForm = () => {
     const [date,setDate] = useState('');
     const [number, setNumber] = useState(1);
     const [occasion, setOccasion] = useState("Birthday");
+    const [availableTimes, setAvailableTimes] = useState([
+        '17:00',
+        '18:00',
+        '19:00',
+        '20:00',
+        '21:00',
+        '22:00',
+    ]);
     
     const handleNumberChange = (e) => {
         setNumber(e.target.value)
@@ -14,19 +22,21 @@ const BookingForm = () => {
     const handleOccasionChange = (e) => {
         setOccasion(e.target.value)
     }
+    const handleTimeChange = (e) => {
+        setAvailableTimes(e.target.value);
+    };
 
     return (
         <form className='booking-form'> 
             <label htmlFor="res-date">Choose date</label>
                 <input type="date" id="res-date" onChange={handleDateChange} value={date}></input>
             <label htmlFor="res-time">Choose time</label>
-            <select id="res-time ">
-                <option>17:00</option>
-                <option>18:00</option>
-                <option>19:00</option>
-                <option>20:00</option>
-                <option>21:00</option>
-                <option>22:00</option>
+            <select id="res-time " onChange={handleTimeChange} value={availableTimes}>
+                {availableTimes.map((time) => (
+                <option key={time} value={time}>
+                    {time}
+                </option>
+            ))}
             </select>
             <label htmlFor="guests">Number of guests</label>
             <input type="number" placeholder="1" min="1" max="10" id="guests" onChange={handleNumberChange} value={number}></input>
