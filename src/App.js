@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from './pages/Home';
-import Booking from './component/Booking/Booking';
+import BookingPage from './pages/BookingPage';
 import NotFound from './pages/NotFound';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -10,7 +10,7 @@ const App =  () => {
     <div className='App'>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/booking' element={<Booking />} />
+        <Route path='/booking' element={<BookingPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
