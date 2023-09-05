@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './BookingForm.css';
 const BookingForm = () => {
+    const [name, setName] = useState('')
     const [date,setDate] = useState('');
     const [number, setNumber] = useState(1);
     const [occasion, setOccasion] = useState("Birthday");
@@ -13,6 +14,9 @@ const BookingForm = () => {
         '22:00',
     ]);
     
+    const handleNameChange = (e) => {
+        setName(e.target.value)
+    }
     const handleNumberChange = (e) => {
         setNumber(e.target.value)
     }
@@ -28,6 +32,8 @@ const BookingForm = () => {
 
     return (
         <form className='booking-form'> 
+            <label htmlFor='res-name'>Name</label>
+                <input type='name' id='res-name' onChange={handleNameChange} value={name}></input>
             <label htmlFor="res-date">Choose date</label>
                 <input type="date" id="res-date" onChange={handleDateChange} value={date}></input>
             <label htmlFor="res-time">Choose time</label>
