@@ -1,8 +1,20 @@
 import BookingForm from "../component/BookingForm/BookingForm";
 import Footer from "../component/Footer/Footer";
 import Nav from "../component/Navigation/Nav";
+import { useState } from "react";
 
 const BookingPage = () => {
+    const [availableTimes, setAvailableTimes] = useState([
+        '17:00',
+        '18:00',
+        '19:00',
+        '20:00',
+        '21:00',
+        '22:00',
+    ]);
+    const handleTimeChange = (e) => {
+        setAvailableTimes(e.target.value);
+    };
     return(
         <>
             <Nav></Nav>
@@ -16,7 +28,7 @@ const BookingPage = () => {
                     <div className="reservation-form">
                         <h1>Reserve a table</h1>
                         <p>Please fill in and submit form to book your reservation at Little Lemon.</p>
-                        <BookingForm></BookingForm>
+                        <BookingForm availableTimes={availableTimes} onChange={handleTimeChange}></BookingForm>
                     </div>
                 </div>   
             </div>
