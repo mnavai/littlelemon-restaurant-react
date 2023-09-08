@@ -14,7 +14,7 @@ const BookingPage = () => {
     ];
 
     const updateTimes = (state, action) => {
-        const { type} = action;
+        const { type, selectedDate } = action;
 
         switch (type) {
             case 'UPDATE_TIMES':
@@ -43,11 +43,15 @@ const BookingPage = () => {
                         <p>At Little Lemon, we take great pride in providing our customers with the greatest luxurious experience with a touch of <em>tradition.</em></p>
                         <p>Book a table with us to share in this experience.</p>
                     </div>
-                    <div className="reservation-form">
+                    <div className="reservation-form" role="form">
                         <h1>Reserve a table</h1>
                         <p>Please fill in and submit the form to book your reservation at Little Lemon.</p>
                         {/* Pass handleDateChange as a prop to BookingForm */}
-                        <BookingForm availableTimes={availableTimes} onChange={handleDateChange}></BookingForm>
+                        <BookingForm
+                            availableTimes={availableTimes}
+                            onChange={handleDateChange}
+                            aria-label="Booking Form"
+                        ></BookingForm>
                     </div>
                 </div>
             </div>
