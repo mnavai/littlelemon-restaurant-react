@@ -6,7 +6,6 @@ const BookingForm = ({availableTimes, onChange}) => {
     const [number, setNumber] = useState(1);
     const [occasion, setOccasion] = useState("Birthday");
     
-    
     const handleNameChange = (e) => {
         setName(e.target.value)
     }
@@ -20,7 +19,6 @@ const BookingForm = ({availableTimes, onChange}) => {
         setOccasion(e.target.value)
     }
     
-
     return (
         <form className='booking-form'> 
             <label htmlFor='res-name'>Name</label>
