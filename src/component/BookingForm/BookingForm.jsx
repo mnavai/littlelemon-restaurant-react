@@ -1,13 +1,18 @@
 import { useState } from 'react';
 import './BookingForm.css';
+import Button from '../Button/Button';
 const BookingForm = ({availableTimes, onChange}) => {
     const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
     const [date,setDate] = useState('');
     const [number, setNumber] = useState(1);
     const [occasion, setOccasion] = useState("Birthday");
     
     const handleNameChange = (e) => {
         setName(e.target.value)
+    }
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value)
     }
     const handleNumberChange = (e) => {
         setNumber(e.target.value)
@@ -23,6 +28,8 @@ const BookingForm = ({availableTimes, onChange}) => {
         <form className='booking-form'> 
             <label htmlFor='res-name'>Name</label>
                 <input type='name' id='res-name' onChange={handleNameChange} value={name}></input>
+            <label htmlFor='res-email'>Email</label>
+                <input type='email' id='res-email' onChange={handleEmailChange} value={email}></input>
             <label htmlFor="res-date">Choose date</label>
                 <input type="date" id="res-date" onChange={handleDateChange} value={date}></input>
             <label htmlFor="res-time">Choose time</label>
@@ -40,7 +47,7 @@ const BookingForm = ({availableTimes, onChange}) => {
                 <option>Birthday</option>
                 <option>Anniversary</option>
             </select>
-            <input type="submit" value="Make Your reservation"></input>
+            <Button className='btn booking-btn' type='submit'>Make a reservation</Button>
         </form>
     );
 };
