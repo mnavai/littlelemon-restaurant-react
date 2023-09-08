@@ -14,7 +14,7 @@ const BookingPage = () => {
     ];
 
     const updateTimes = (state, action) => {
-        const { type, selectedDate } = action;
+        const { type } = action;
 
         switch (type) {
             case 'UPDATE_TIMES':
