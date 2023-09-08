@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import BookingForm from "../BookingForm";
 
 describe("BookingForm component", () => {
@@ -18,6 +18,15 @@ describe("BookingForm component", () => {
         expect(numberInput).toBeInTheDocument();
         expect(occasionSelect).toBeInTheDocument();
         expect(submitButton).toBeInTheDocument();
+
+        fireEvent.change(dateInput, { target: { value: '2023-09-15' } });
+        fireEvent.change(numberInput, { target: { value: '5' } });
+        fireEvent.change(occasionSelect, { target: { value: 'Anniversary' } });
+
+        expect(dateInput.value).toBe('2023-09-15');
+        expect(numberInput.value).toBe('5');
+        expect(occasionSelect.value).toBe('Anniversary');
+
     })
 })
 
