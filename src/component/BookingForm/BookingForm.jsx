@@ -2,11 +2,11 @@ import { useState } from 'react';
 import './BookingForm.css';
 import Button from '../Button/Button';
 const BookingForm = ({availableTimes, onChange}) => {
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [date,setDate] = useState('');
-    const [number, setNumber] = useState(1);
-    const [occasion, setOccasion] = useState("Birthday");
+    const [name, setName] = useState('John Doe')
+    const [email, setEmail] = useState('john.doe@gmail.com')
+    const [date,setDate] = useState('2023-09-15');
+    const [number, setNumber] = useState(2);
+    const [occasion, setOccasion] = useState('Anniversary');
     
     const handleNameChange = (e) => {
         setName(e.target.value)
@@ -25,15 +25,15 @@ const BookingForm = ({availableTimes, onChange}) => {
     }
     
     return (
-        <form className='booking-form'> 
-            <label htmlFor='res-name'>Name</label>
+        <form className='booking-form' data-testid="booking-form"> 
+            <label htmlFor='res-name' data-testid='name'>Name</label>
                 <input type='name' id='res-name' onChange={handleNameChange} value={name}></input>
             <label htmlFor='res-email'>Email</label>
                 <input type='email' id='res-email' onChange={handleEmailChange} value={email}></input>
             <label htmlFor="res-date">Choose date</label>
                 <input type="date" id="res-date" onChange={handleDateChange} value={date}></input>
             <label htmlFor="res-time">Choose time</label>
-            <select id="res-time " onChange={onChange} value={availableTimes}>
+            <select id="res-time" onChange={onChange} value={availableTimes}>
                 {availableTimes.map((time) => (
                 <option key={time} value={time}>
                     {time}
