@@ -8,7 +8,6 @@ describe("BookingForm component", () => {
     const availableTimes = ['17:00', '18:00', '19:00'];
     const onChangeMock = jest.fn();
     
-
     render(<BookingForm availableTimes={availableTimes} onChange={onChangeMock}></BookingForm>);
 
     // Get form elements by their labels
@@ -17,6 +16,7 @@ describe("BookingForm component", () => {
     const dateInput = screen.getByLabelText('Choose date');
     const guestsInput = screen.getByLabelText('Number of guests');
     const occasionSelect = screen.getByLabelText('Occasion');
+    // const submitButton = screen.getByText('Make a reservation');
   
     // Verify user input
     expect(nameInput).toHaveValue('John Doe');
@@ -24,6 +24,11 @@ describe("BookingForm component", () => {
     expect(dateInput).toHaveValue('2023-09-15');
     expect(guestsInput).toHaveValue(2);
     expect(occasionSelect).toHaveValue('Anniversary');
+
+    // fireEvent.click(screen.getByText('Make a reservation'));
+
+    // expect(onChangeMock).toHaveBeenCalledTimes(1);
+
 
   });
 });
