@@ -42,7 +42,7 @@ const BookingPage = () => {
     const fetchData = async (selectedDate) => {
         try {
             // Use the selectedDate to fetch data from the API.
-            const response = await fetch(`your-api-endpoint?date=${selectedDate}`);
+            const response = await fetch('https://drive.google.com/file/d/1PMLIeT_CGv6oGL7WoXa-ubgcSspRfyBL/view');
             const data = await response.json();
             return data.times; // Assuming the API response contains an array of times.
         } catch (error) {
