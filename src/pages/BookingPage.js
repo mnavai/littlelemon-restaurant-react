@@ -1,7 +1,7 @@
+import React, { useEffect, useReducer } from "react";
 import BookingForm from "../component/BookingForm/BookingForm";
 import Footer from "../component/Footer/Footer";
 import Nav from "../component/Navigation/Nav";
-import { useReducer } from "react";
 
 const BookingPage = () => {
     const initialTimes = [
@@ -14,13 +14,11 @@ const BookingPage = () => {
     ];
 
     const updateTimes = (state, action) => {
-        const { type } = action;
+        const { type, times } = action;
 
         switch (type) {
             case 'UPDATE_TIMES':
-                // You can now customize this logic to update the times based on the selected date.
-                // For this example, we'll return the same initial times.
-                return initialTimes;
+                return times; // Set available times to the times fetched from the API.
             default:
                 return state;
         }
@@ -28,14 +26,44 @@ const BookingPage = () => {
 
     const [availableTimes, dispatch] = useReducer(updateTimes, initialTimes);
 
+    useEffect(() => {
+        // Use the fetchData function to fetch available times for today's date.
+        // Pass the selected date (today's date) to the API call.
+        fetchData(new Date())
+            .then((times) => {
+                // Dispatch the times fetched from the API to update availableTimes.
+                dispatch({ type: 'UPDATE_TIMES', times });
+            })
+            .catch((error) => {
+                console.error("Error fetching data: ", error);
+            });
+    }, []);
+
+    const fetchData = async (selectedDate) => {
+        try {
+            // Use the selectedDate to fetch data from the API.
+            const response = await fetch(`your-api-endpoint?date=${selectedDate}`);
+            const data = await response.json();
+            return data.times; // Assuming the API response contains an array of times.
+        } catch (error) {
+            throw new Error(error);
+        }
+    };
+
     const handleDateChange = (selectedDate) => {
         // Dispatch the selectedDate to update the available times.
-        dispatch({ type: 'UPDATE_TIMES', selectedDate });
+        fetchData(selectedDate)
+            .then((times) => {
+                dispatch({ type: 'UPDATE_TIMES', times });
+            })
+            .catch((error) => {
+                console.error("Error fetching data: ", error);
+            });
     };
 
     return (
         <>
-            <Nav></Nav>
+            <Nav />
             <div className="reservation-wrapper">
                 <div className="reservation-container">
                     <div className="reservation-text">
@@ -55,7 +83,7 @@ const BookingPage = () => {
                     </div>
                 </div>
             </div>
-            <Footer></Footer>
+            <Footer />
         </>
     );
 };
