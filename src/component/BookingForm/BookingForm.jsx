@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./BookingForm.css";
 import Button from "../Button/Button";
-const BookingForm = ({ availableTimes, onChange }) => {
+const BookingForm = ({ availableTimes, onDateChange, selectedTime, setSelectedTime, selectedDate }) => {
   const [name, setName] = useState("John Doe");
   const [email, setEmail] = useState("john.doe@gmail.com");
   const [date, setDate] = useState("2023-09-15");
@@ -18,7 +18,10 @@ const BookingForm = ({ availableTimes, onChange }) => {
     setNumber(e.target.value);
   };
   const handleDateChange = (e) => {
-    setDate(availableTimes);
+    const newSelectedDate = e.target.value;
+    setSelectedTime(""); // Reset selectedTime when the date changes
+    onDateChange(newSelectedDate); // Notify the parent component of the date change
+    setDate(newSelectedDate); // Update the local state as well
   };
   const handleOccasionChange = (e) => {
     setOccasion(e.target.value);
@@ -47,11 +50,11 @@ const BookingForm = ({ availableTimes, onChange }) => {
         type="date"
         id="res-date"
         onChange={handleDateChange}
-        value={date}
+        value={selectedDate}
       ></input>
       <label htmlFor="res-time">Choose time</label>
-      <select id="res-time" onChange={(e) => {onChange(e)}} value={availableTimes}>
-        {["[availableTimes]"]?.map((time) => (
+      <select id="res-time" onChange={(e) => {setSelectedTime(e.target.value)}} value={selectedTime}>
+        {availableTimes?.map((time) => (
           <option key={time} value={time}>
             {time}
           </option>

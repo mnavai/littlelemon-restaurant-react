@@ -1,11 +1,25 @@
 import React from "react";
+import { fetchAPI } from "../util/utils";
+import { useState } from "react";
 import BookingForm from "../component/BookingForm/BookingForm";
 import Footer from "../component/Footer/Footer";
 import Nav from "../component/Navigation/Nav";
 
 
-const BookingPage = ({ availableTimes, handleDateChange }) => {
-  
+const BookingPage = ({ availableTimes, dispatch }) => {
+  const [selectedTime, setSelectedTime] = useState("");
+  const [selectedDate, setSelectedDate] = useState(""); // Local state for selected date
+
+  const handleDateChange = async (newSelectedDate) => {
+    try {
+      const times = await fetchAPI(newSelectedDate); // Pass selectedDate to the API call
+      setSelectedTime(""); // Reset selectedTime when the date changes
+      setSelectedDate(newSelectedDate); // Update selectedDate in local state
+      dispatch({ type: "UPDATE_TIMES", times }); // Update availableTimes using the dispatch
+    } catch (error) {
+      console.error("Error fetching available times:", error);
+    }
+  };
   return (
     <>
       <Nav />
@@ -29,7 +43,10 @@ const BookingPage = ({ availableTimes, handleDateChange }) => {
             {/* Pass handleDateChange as a prop to BookingForm */}
             <BookingForm
               availableTimes={availableTimes}
-              onChange={handleDateChange}
+              onDateChange={handleDateChange}
+              selectedTime={selectedTime}
+              setSelectedTime={setSelectedTime}
+              selectedDate={selectedDate}
               aria-label="Booking Form"
             ></BookingForm>
           </div>
