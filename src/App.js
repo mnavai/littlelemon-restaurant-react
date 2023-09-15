@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import Home from "./pages/Home";
 import BookingPage from "./pages/BookingPage";
-import ConfirmedBooking from "./pages/ConfirmedBooking";
+import ConfirmationPage from "./pages/ConfirmationPage"
 import NotFound from "./pages/NotFound";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -34,7 +34,7 @@ const App = () => {
             />
           }
         />
-        <Route path="/ConfirmedBooking" element={<ConfirmedBooking />} />
+        <Route path="/ConfirmedBooking" element={<ConfirmationPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

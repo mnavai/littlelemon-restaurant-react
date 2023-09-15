@@ -6,7 +6,7 @@ const Highlights = () => {
         <div className="highlights-section">
             <div className='highlights-top-section'>
                 <h1 className='hightlights-heading'>Specials</h1>
-                <Button className='btn' type='submit'>Online Menu</Button>
+                <Button className='btn hightlight-btn' type='submit'>Online Menu</Button>
             </div>
             <article className='highlights-card'>
                 <Card className='card'

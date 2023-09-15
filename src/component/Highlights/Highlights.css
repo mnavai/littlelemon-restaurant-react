@@ -9,12 +9,15 @@
 .highlights-top-section {
     display: flex;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 8rem;
 }
 .hightlights-heading{
     font-family: Markazi Text, serif;
     font-size: 50px;
 }
+
 .highlights-card{
     display: flex;
     justify-content:space-between;
