@@ -10,7 +10,7 @@
 }
 .nav-links{
     flex: 1;
-    text-align: right;
+    margin-right: 4.7rem;
 }
 .links-list{
     list-style-type: none;
@@ -23,6 +23,13 @@ ul{
 .link-item{
     text-decoration: none;
 }
+
+.nav-logo img{
+    margin-left: 4.7rem;
+}
 img {
     width: 200px;
+}
+.link{
+    text-decoration: none;
 }
