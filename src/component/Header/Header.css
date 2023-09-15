@@ -36,6 +36,7 @@
     overflow: hidden;
     position: absolute;
     top: 150px;
+    right: 100px;
 }
 .header-img img{
     border-radius: 20px;

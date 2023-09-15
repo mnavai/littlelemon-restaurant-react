@@ -40,10 +40,10 @@
 img {
     overflow-clip-margin: content-box;
     overflow: clip;
-    margin-left:13rem ;
-    margin-right: 10rem;
 }
 .footer-logo img{
     width: 115px;
     height: 115px;
+    margin-left:13rem ;
+    margin-right: 10rem;
 }
