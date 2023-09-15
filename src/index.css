@@ -59,3 +59,26 @@ code {
   text-align: left;
   width: 30%;
 }
+
+.confirmation-container {
+  align-items: flex-start;
+  display: flex;
+  gap: 100px;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 80px 0;
+  width: 85%;
+}
+.confirmation-page{
+  background-color: #fff;
+  border-radius: 10px;
+  color: #333;
+  height: auto;
+  padding: 30px 40px 50px;
+  text-align: left;
+  width: 30%;
+}
+.confirmation-heading{
+  font: 18px;
+  color: black;
+}
