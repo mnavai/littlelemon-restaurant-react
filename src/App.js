@@ -1,13 +1,12 @@
 import React, { useReducer } from "react";
-import Home from './pages/Home';
-import BookingPage from './pages/BookingPage';
-import ConfirmedBooking from './pages/ConfirmedBooking';
-import NotFound from './pages/NotFound';
-import { Route, Routes } from 'react-router-dom';
-import './App.css';
+import Home from "./pages/Home";
+import BookingPage from "./pages/BookingPage";
+import ConfirmedBooking from "./pages/ConfirmedBooking";
+import NotFound from "./pages/NotFound";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
 
-const App =  () => {
-  
+const App = () => {
   const updateTimes = (state, action) => {
     const { type, times } = action;
 
@@ -20,15 +19,23 @@ const App =  () => {
   };
 
   const [availableTimes, dispatch] = useReducer(updateTimes, []);
-  console.log("availableTimes", availableTimes);
 
   return (
-    <div className='App'>
+    <div className="App">
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/booking' element={<BookingPage availableTimes={availableTimes} dispatch={dispatch} aria-label="Booking Form"/>} />
-        <Route path='/ConfirmedBooking' element={<ConfirmedBooking />}/>
-        <Route path='*' element={<NotFound />} />
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/booking"
+          element={
+            <BookingPage
+              availableTimes={availableTimes}
+              dispatch={dispatch}
+              aria-label="Booking Form"
+            />
+          }
+        />
+        <Route path="/ConfirmedBooking" element={<ConfirmedBooking />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
