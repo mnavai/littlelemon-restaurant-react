@@ -1,12 +1,38 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./BookingForm.css";
 import Button from "../Button/Button";
-const BookingForm = ({ availableTimes, onDateChange, selectedTime, setSelectedTime, selectedDate }) => {
+
+const BookingForm = ({
+  availableTimes,
+  onDateChange,
+  selectedTime,
+  setSelectedTime,
+  selectedDate,
+}) => {
+  const navigate = useNavigate();
   const [name, setName] = useState("John Doe");
   const [email, setEmail] = useState("john.doe@gmail.com");
   const [date, setDate] = useState("2023-09-15");
   const [number, setNumber] = useState(2);
   const [occasion, setOccasion] = useState("Anniversary");
+  
+  const sendConfirmationEmail = async (
+    name,
+    email,
+    selectedDate,
+    selectedTime
+  ) => {
+    // Simulate sending an email (logging to console for demonstration purposes)
+    console.log(
+      `Confirmation email sent to ${email} for ${name}'s reservation on ${selectedDate} at ${selectedTime}.`
+    );
+  };
+
+  const handleReservationSubmit = async () => {
+    await sendConfirmationEmail(name, email, selectedDate, selectedTime);
+    navigate("/ConfirmedBooking");
+  }
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -53,7 +79,13 @@ const BookingForm = ({ availableTimes, onDateChange, selectedTime, setSelectedTi
         value={selectedDate}
       ></input>
       <label htmlFor="res-time">Choose time</label>
-      <select id="res-time" onChange={(e) => {setSelectedTime(e.target.value)}} value={selectedTime}>
+      <select
+        id="res-time"
+        onChange={(e) => {
+          setSelectedTime(e.target.value);
+        }}
+        value={selectedTime}
+      >
         {availableTimes?.map((time) => (
           <option key={time} value={time}>
             {time}
@@ -75,7 +107,7 @@ const BookingForm = ({ availableTimes, onDateChange, selectedTime, setSelectedTi
         <option>Birthday</option>
         <option>Anniversary</option>
       </select>
-      <Button className="btn booking-btn" type="submit">
+      <Button className="btn booking-btn" type="submit" onSubmit={handleReservationSubmit}>
         Make a reservation
       </Button>
     </form>
