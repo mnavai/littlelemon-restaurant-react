@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "./BookingForm.css";
 import Button from "../Button/Button";
 
@@ -16,7 +16,7 @@ const BookingForm = ({
   const [date, setDate] = useState("2023-09-15");
   const [number, setNumber] = useState(2);
   const [occasion, setOccasion] = useState("Anniversary");
-  
+
   const sendConfirmationEmail = async (
     name,
     email,
@@ -33,7 +33,7 @@ const BookingForm = ({
     e.preventDefault();
     await sendConfirmationEmail(name, email, selectedDate, selectedTime);
     navigate("/confirmationpage");
-  }
+  };
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -108,7 +108,11 @@ const BookingForm = ({
         <option>Birthday</option>
         <option>Anniversary</option>
       </select>
-      <Button className="btn booking-btn" type="submit" onSubmit={handleReservationSubmit}>
+      <Button
+        className="btn booking-btn"
+        type="submit"
+        onClick={handleReservationSubmit}
+      >
         Make a reservation
       </Button>
     </form>

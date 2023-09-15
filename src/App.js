@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import Home from "./pages/Home";
 import BookingPage from "./pages/BookingPage";
-import ConfirmationPage from "./pages/ConfirmationPage"
+import ConfirmationPage from "./pages/ConfirmationPage";
 import NotFound from "./pages/NotFound";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
