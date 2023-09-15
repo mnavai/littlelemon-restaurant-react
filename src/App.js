@@ -34,7 +34,7 @@ const App = () => {
             />
           }
         />
-        <Route path="/ConfirmedBooking" element={<ConfirmationPage />} />
+        <Route path="/confirmationpage" element={<ConfirmationPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

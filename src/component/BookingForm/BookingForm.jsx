@@ -9,7 +9,6 @@ const BookingForm = ({
   selectedTime,
   setSelectedTime,
   selectedDate,
-  onSubmit
 }) => {
   const navigate = useNavigate();
   const [name, setName] = useState("John Doe");
@@ -31,9 +30,9 @@ const BookingForm = ({
   };
 
   const handleReservationSubmit = async (e) => {
-    e.preverntDefault();
+    e.preventDefault();
     await sendConfirmationEmail(name, email, selectedDate, selectedTime);
-    navigate("/ConfirmedBooking");
+    navigate("/confirmationpage");
   }
 
   const handleNameChange = (e) => {
