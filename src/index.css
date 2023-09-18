@@ -34,6 +34,7 @@ code {
   background-image: linear-gradient(180deg, rgba(0, 0, 0, .42), rgba(0, 0, 0, .73)), url(https://user-images.githubusercontent.com/70451928/222874465-67747b54-06d5-44c5-ac95-517f13610466.jpg);
   background-size: cover;
   width: 100%;
+  height: 85vh;
 }
 .reservation-container {
   align-items: flex-start;
