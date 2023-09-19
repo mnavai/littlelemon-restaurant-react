@@ -14,7 +14,7 @@ const BookingPage = ({ availableTimes, dispatch }) => {
     try {
       const times = await fetchAPI(newSelectedDate); // Pass selectedDate to the API call
       setSelectedTime(""); // Reset selectedTime when the date changes
-      setSelectedDate(newSelectedDate); // Update selectedDate in local state
+      setSelectedDate(newSelectedDate); // Update selectedDate in local state ...
       dispatch({ type: "UPDATE_TIMES", times }); // Update availableTimes using the dispatch
     } catch (error) {
       console.error("Error fetching available times:", error);
