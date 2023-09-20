@@ -3,7 +3,7 @@ import './Nav.css';
 
 const Nav = () => {
     return (
-      <nav className="nav-section">
+      <div className="nav-section">
         <div className="nav-logo">
           <img
             src="https://little-lemon-weld.vercel.app/static/media/logo.7aa41df0270b68cbabda.jpg"
@@ -28,7 +28,7 @@ const Nav = () => {
             <li>LOGIN</li>
           </ul>
         </nav>
-      </nav>
+      </div>
     );
 };
 export default Nav;
