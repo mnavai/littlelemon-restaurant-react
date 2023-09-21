@@ -75,4 +75,29 @@
         font-weight: bold;
     }
 }
-    
+@media screen and (max-width: 578px) {
+    .header-section{
+        display: flex;
+        flex-direction: column;
+    }
+    .header-left{
+        margin-left: 2rem;
+    }
+    .text-group{
+        font-size: 14px;
+    }
+    .header-img {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: absolute;
+    top: 435px;
+    right: 65px;
+}
+.header-img img {
+    border-radius: 20px;
+    width: 250px;
+    height: 350px;
+}
+}
