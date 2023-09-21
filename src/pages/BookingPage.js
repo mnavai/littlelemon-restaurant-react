@@ -35,8 +35,8 @@ const BookingPage = ({ availableTimes, dispatch }) => {
             <p>Book a table with us to share in this experience.</p>
           </div>
           <div className="reservation-form" role="form">
-            <h1>Reserve a table</h1>
-            <p>
+            <h1 className="reservation-heading">Reserve a table</h1>
+            <p className="reservation-p">
               Please fill in and submit the form to book your reservation at
               Little Lemon.
             </p>

@@ -110,7 +110,7 @@ code {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 900px;
+    height: 750px;
   }
   .reservation-text {
     margin-top: 10px;
@@ -119,5 +119,11 @@ code {
   }
   .reservation-wrapper {
     height: 100vh;
+  }
+  .reservation-heading{
+    font-size: 18px;
+  }
+  .reservation-p{
+    font-size: 12px;
   }
 }
