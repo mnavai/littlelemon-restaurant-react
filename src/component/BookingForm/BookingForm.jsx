@@ -21,7 +21,7 @@ const BookingForm = ({
   const [emailError, setEmailError] = useState("");
   const [dateError, setDateError] = useState("");
   const [timeError, setTimeError] = useState("");
-  const [guest, setGuestNoError] = useState("");
+  const [guestError, setGuestError] = useState("");
 
   const sendConfirmationEmail = async (
     name,
@@ -75,11 +75,12 @@ const BookingForm = ({
       setTimeError("");
     }
 
-    if (!guest || guest < 1) {
-      setGuestNoError("Number of guests is required.");
+    // Validate number of guests and display error above the field
+    if (!number || number < 1) {
+      setGuestError("Number of guests is required.");
       hasError = true;
     } else {
-      setGuestNoError("");
+      setGuestError("");
     }
 
     // If any errors occurred, stop the submission
@@ -93,20 +94,62 @@ const BookingForm = ({
   };
 
   const handleNameChange = (e) => {
-    setName(e.target.value);
+    const newName = e.target.value;
+    setName(newName);
+
+    // Clear the error when the user starts typing
+    if (newName.trim() !== "") {
+      setNameError("");
+    }
   };
+
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+
+    // Clear the error when the user starts typing
+    if (newEmail.trim() !== "") {
+      setEmailError("");
+    }
   };
+
   const handleNumberChange = (e) => {
-    setNumber(e.target.value);
+    const newNumber = e.target.value;
+    setNumber(newNumber);
+
+    // Clear the error when the user starts typing
+    if (newNumber.trim() !== "") {
+      setGuestError("");
+    }
   };
+
+
   const handleDateChange = (e) => {
     const newSelectedDate = e.target.value;
     setSelectedTime("");
+
+    // Clear the error when the user starts typing
+    if (newSelectedDate.trim() !== "") {
+      setDateError("");
+    }
+
     onDateChange(newSelectedDate);
     setDate(newSelectedDate);
   };
+
+  const handleTimeChange = (e) => {
+    const newSelectedTime = e.target.value;
+
+    // Clear the error when the user starts typing
+    if (newSelectedTime.trim() !== "") {
+      setTimeError("");
+    }
+
+    setSelectedTime(newSelectedTime);
+  };
+
+
+
   const handleOccasionChange = (e) => {
     setOccasion(e.target.value);
   };
@@ -140,7 +183,7 @@ const BookingForm = ({
         {emailError && <div className="error">{emailError}</div>}
       </div>
       <div className="form-field">
-        <label htmlFor="res-date">Choose date </label>
+        <label htmlFor="res-date">Choose date</label>
         <input
           type="date"
           id="res-date"
@@ -153,9 +196,7 @@ const BookingForm = ({
         <label htmlFor="res-time">Choose time</label>
         <select
           id="res-time"
-          onChange={(e) => {
-            setSelectedTime(e.target.value);
-          }}
+          onChange={handleTimeChange}
           value={selectedTime}
         >
           <option value="">Select a time</option>
@@ -178,7 +219,7 @@ const BookingForm = ({
           onChange={handleNumberChange}
           value={number}
         ></input>
-        {guest && <div className="error">{guest}</div>}
+        {guestError && <div className="error">{guestError}</div>}
       </div>
       <div className="form-field">
         <label htmlFor="occasion">Occasion</label>
@@ -198,4 +239,5 @@ const BookingForm = ({
     </form>
   );
 };
+
 export default BookingForm;
