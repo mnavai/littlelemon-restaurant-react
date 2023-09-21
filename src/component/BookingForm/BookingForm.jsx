@@ -66,12 +66,11 @@ const BookingForm = ({
     }
 
     // Check if there are any validation errors
-    if (nameError || emailError || dateError || timeError) {
-      return; // Prevent form submission if there are errors
+    if (!nameError && !emailError && !dateError && !timeError) {
+      // If there are no errors, submit the form
+      await sendConfirmationEmail(name, email, selectedDate, selectedTime);
+      navigate("/confirmationpage");
     }
-
-    await sendConfirmationEmail(name, email, selectedDate, selectedTime);
-    navigate("/confirmationpage");
   };
 
   const handleNameChange = (e) => {
@@ -104,7 +103,6 @@ const BookingForm = ({
     <form className="booking-form" data-testid="booking-form">
       <label htmlFor="res-name" data-testid="name">
         Name
-        {nameError && <span className="error">{nameError}</span>}
       </label>
       <input
         type="name"
@@ -112,30 +110,24 @@ const BookingForm = ({
         onChange={handleNameChange}
         value={name}
       ></input>
-      <label htmlFor="res-email">
-        Email
-        {emailError && <span className="error">{emailError}</span>}
-      </label>
+      {nameError && <div className="error">{nameError}</div>}
+      <label htmlFor="res-email">Email</label>
       <input
         type="email"
         id="res-email"
         onChange={handleEmailChange}
         value={email}
       ></input>
-      <label htmlFor="res-date">
-        Choose date
-        {dateError && <span className="error">{dateError}</span>}
-      </label>
+      {emailError && <div className="error">{emailError}</div>}
+      <label htmlFor="res-date">Choose date</label>
       <input
         type="date"
         id="res-date"
         onChange={handleDateChange}
         value={selectedDate}
       ></input>
-      <label htmlFor="res-time">
-        Choose time
-        {timeError && <span className="error">{timeError}</span>}
-      </label>
+      {dateError && <div className="error">{dateError}</div>}
+      <label htmlFor="res-time">Choose time</label>
       <select
         id="res-time"
         onChange={(e) => {
@@ -149,6 +141,7 @@ const BookingForm = ({
           </option>
         ))}
       </select>
+      {timeError && <div className="error">{timeError}</div>}
       <label htmlFor="guests">Number of guests</label>
       <input
         type="number"
