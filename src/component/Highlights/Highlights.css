@@ -14,8 +14,12 @@
 .hightlights-heading{
     font-family: Markazi Text, serif;
     font-size: 50px;
+    margin-right: 78rem;
+ 
 }
-
+.hightlights-btn{
+    height: 4rem;
+}
 .highlights-card{
     display: flex;
     justify-content:space-between;
