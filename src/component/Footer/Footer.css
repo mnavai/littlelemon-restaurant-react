@@ -1,49 +1,72 @@
 .footer-top-section {
-    align-items: center;
-    display: flex;
-    justify-content: space-around;
-    background-color: #495e57;
-    height: 20%;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    color: #fff;
-    padding:1rem;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  background-color: #495e57;
+  height: 20%;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  padding: 1rem;
 }
-.footer-bottom-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #495e57;
-    color: #fff;
-    font-weight: bold;
-    font-size: 18px;
+.footer-bottom-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #495e57;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
 }
 .doormat-nav,
 .contact-info,
 .social-media {
-    flex: 1;
-    /* Distribute available space equally among these sections */
-    text-align: left;
-    /* Center-align the text within each section */
+  flex: 1;
+  /* Distribute available space equally among these sections */
+  text-align: left;
+  /* Center-align the text within each section */
 }
 .footer-list {
-    list-style-type: none;
-    /* Remove bullet points */
-    padding: 0;
-    /* Remove default padding */
+  list-style-type: none;
+  /* Remove bullet points */
+  padding: 0;
+  /* Remove default padding */
 }
 .footer-list li {
-    margin: 10px 0;
-    /* Add spacing between list items */
+  margin: 10px 0;
+  /* Add spacing between list items */
 }
 img {
-    overflow-clip-margin: content-box;
-    overflow: clip;
+  overflow-clip-margin: content-box;
+  overflow: clip;
 }
-.footer-logo img{
-    width: 115px;
-    height: 115px;
-    margin-left:13rem ;
-    margin-right: 10rem;
+.footer-logo img {
+  width: 115px;
+  height: 115px;
+  margin-left: 13rem;
+  margin-right: 10rem;
+}
+
+@media screen and (min-width: 579px) and (max-width: 1180px) {
+  .footer-logo img {
+    width: 80px;
+    height: 80px;
+    margin-left: 4.5rem;
+    margin-right: 3rem;
+  }
+  .footer-list li {
+    margin: 15px 0;
+  }
+  .doormat-nav,
+  .contact-info,
+  .social-media {
+    flex: 1;
+    margin-right: 1rem;
+    text-align: left;
+    font-size: 14px;
+  }
+  .footer-bottom-section {
+    width: 100%;
+}
 }
