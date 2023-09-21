@@ -72,7 +72,7 @@ img {
 }
 @media screen and (max-width: 578px) {
   .footer-bottom-section {
-    margin-top: 5rem;
+    margin-top: 0;
     font-size: 14px;
   }
   .footer-top-section {

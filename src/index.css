@@ -110,7 +110,9 @@ code {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 750px;
+    height: 670px;
+    gap:20px;
+
   }
   .reservation-text {
     margin-top: 10px;
@@ -125,5 +127,8 @@ code {
   }
   .reservation-p{
     font-size: 12px;
+  }
+  .confirmation-page{
+    width: 55%;
   }
 }
