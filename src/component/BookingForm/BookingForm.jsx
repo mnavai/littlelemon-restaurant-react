@@ -11,8 +11,8 @@ const BookingForm = ({
   selectedDate,
 }) => {
   const navigate = useNavigate();
-  const [name, setName] = useState("John Doe");
-  const [email, setEmail] = useState("john.doe@gmail.com");
+  const [name, setName] = useState("Ex: John Doe");
+  const [email, setEmail] = useState("Ex: john.doe@gmail.com");
   const [date, setDate] = useState("2023-09-15");
   const [number, setNumber] = useState(2);
   const [occasion, setOccasion] = useState("Anniversary");
@@ -41,7 +41,7 @@ const BookingForm = ({
     let hasError = false; // Track if any errors occurred
 
     // Validate name and display error above the field
-    if (!name.trim()) {
+    if (!name.trim() || name === "Ex: John Doe") {
       setNameError("Name is required.");
       hasError = true;
     } else {
@@ -49,7 +49,7 @@ const BookingForm = ({
     }
 
     // Validate email and display error above the field
-    if (!email.trim()) {
+    if (!email.trim() || email === "Ex: john.doe@gmail.com") {
       setEmailError("Email is required.");
       hasError = true;
     } else if (!emailIsValid(email)) {
@@ -60,7 +60,7 @@ const BookingForm = ({
     }
 
     // Validate date and display error above the field
-    if (!selectedDate) {
+    if (!selectedDate || selectedDate === "2023-09-15") {
       setDateError("Date is required.");
       hasError = true;
     } else {
@@ -68,7 +68,7 @@ const BookingForm = ({
     }
 
     // Validate time and display error above the field
-    if (!selectedTime) {
+    if (!selectedTime || selectedTime === "") {
       setTimeError("Time must be selected.");
       hasError = true;
     } else {
