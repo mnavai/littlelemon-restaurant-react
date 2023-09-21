@@ -55,15 +55,15 @@ ul {
 
 /* Add styles to show/hide mobile menu links */
 .nav-links.show-mobile-menu {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 70px; /* Adjust as needed to position the menu below the header */
-  right: 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 10px;
-  z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    position: absolute;
+    top: 100px;
+    width: 100vw;
+    background-color: #fff;
+    padding: 10px;
+    z-index: 3000;
 }
 
 /* Media query for screens with a maximum width of 768px (adjust as needed) */
