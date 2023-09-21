@@ -43,3 +43,35 @@
     width:350px;
     height:450px
 }
+
+@media screen and (min-width:579px) and (max-width: 1180px){
+    .header-section{
+        height: 500px;
+    }
+    .header-left{
+        margin-left: 1rem;
+        width: 25%;
+    }
+    .header-heading{
+        font-size: 30px;
+    }
+    .header-subheading{
+        font-size: 20px;
+    }
+    .header-text{
+        font-size: 10px;
+    }
+    .header-right{
+        width:30%;
+    }
+    .header-img img{
+    border-radius: 20px;
+    width:250px;
+    height:350px
+    }
+    .header-btn{
+        font-size: 12px;
+        font-weight: bold;
+    }
+}
+    
