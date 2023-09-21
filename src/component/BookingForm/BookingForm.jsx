@@ -17,6 +17,12 @@ const BookingForm = ({
   const [number, setNumber] = useState(2);
   const [occasion, setOccasion] = useState("Anniversary");
 
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [dateError, setDateError] = useState("");
+  const [timeError, setTimeError] = useState("");
+  const [guest, setGuestNoError] = useState("");
+
   const sendConfirmationEmail = async (
     name,
     email,
@@ -32,28 +38,52 @@ const BookingForm = ({
   const handleReservationSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate name and email
+    let hasError = false; // Track if any errors occurred
+
+    // Validate name and display error above the field
     if (!name.trim()) {
-      alert("Name is required.");
-      return;
+      setNameError("Name is required.");
+      hasError = true;
+    } else {
+      setNameError("");
     }
 
+    // Validate email and display error above the field
     if (!email.trim()) {
-      alert("Email is required.");
-      return;
+      setEmailError("Email is required.");
+      hasError = true;
     } else if (!emailIsValid(email)) {
-      alert("Invalid email format.");
-      return;
+      setEmailError("Invalid email format.");
+      hasError = true;
+    } else {
+      setEmailError("");
     }
 
-    // Validate date and time
+    // Validate date and display error above the field
     if (!selectedDate) {
-      alert("Date is required.");
-      return;
+      setDateError("Date is required.");
+      hasError = true;
+    } else {
+      setDateError("");
     }
 
+    // Validate time and display error above the field
     if (!selectedTime) {
-      alert("Time must be selected.");
+      setTimeError("Time must be selected.");
+      hasError = true;
+    } else {
+      setTimeError("");
+    }
+
+    if(!guest || guest < 1){
+      setGuestNoError("Number of guests is required.")
+      hasError = true;
+    } else {
+      setGuestNoError("");
+    }
+
+    // If any errors occurred, stop the submission
+    if (hasError) {
       return;
     }
 
@@ -87,63 +117,76 @@ const BookingForm = ({
 
   return (
     <form className="booking-form" data-testid="booking-form">
-      <label htmlFor="res-name" data-testid="name">
-        Name
-      </label>
-      <input
-        type="name"
-        id="res-name"
-        onChange={handleNameChange}
-        value={name}
-        required
-      ></input>
-      <label htmlFor="res-email">Email</label>
-      <input
-        type="email"
-        id="res-email"
-        onChange={handleEmailChange}
-        value={email}
-        required
-      ></input>
-      <label htmlFor="res-date">Choose date</label>
-      <input
-        type="date"
-        id="res-date"
-        onChange={handleDateChange}
-        value={selectedDate}
-        required
-      ></input>
-      <label htmlFor="res-time">Choose time</label>
-      <select
-        id="res-time"
-        onChange={(e) => {
-          setSelectedTime(e.target.value);
-        }}
-        value={selectedTime}
-        required
-      >
-        <option value="">Select a time</option>
-        {availableTimes?.map((time) => (
-          <option key={time} value={time}>
-            {time}
-          </option>
-        ))}
-      </select>
-      <label htmlFor="guests">Number of guests</label>
-      <input
-        type="number"
-        placeholder="1"
-        min="1"
-        max="10"
-        id="guests"
-        onChange={handleNumberChange}
-        value={number}
-      ></input>
-      <label htmlFor="occasion">Occasion</label>
-      <select id="occasion" onChange={handleOccasionChange} value={occasion}>
-        <option>Birthday</option>
-        <option>Anniversary</option>
-      </select>
+      <div className="form-field">
+        <label htmlFor="res-name" data-testid="name">
+          Name
+        </label>
+        <input
+          type="name"
+          id="res-name"
+          onChange={handleNameChange}
+          value={name}
+        ></input>
+        {nameError && <div className="error">{nameError}</div>}
+      </div>
+      <div className="form-field">
+        <label htmlFor="res-email">Email</label>
+        <input
+          type="email"
+          id="res-email"
+          onChange={handleEmailChange}
+          value={email}
+        ></input>
+        {emailError && <div className="error">{emailError}</div>}
+      </div>
+      <div className="form-field">
+        <label htmlFor="res-date">Choose date</label>
+        <input
+          type="date"
+          id="res-date"
+          onChange={handleDateChange}
+          value={selectedDate}
+        ></input>
+        {dateError && <div className="error">{dateError}</div>}
+      </div>
+      <div className="form-field">
+        <label htmlFor="res-time">Choose time</label>
+        <select
+          id="res-time"
+          onChange={(e) => {
+            setSelectedTime(e.target.value);
+          }}
+          value={selectedTime}
+        >
+          <option value="">Select a time</option>
+          {availableTimes?.map((time) => (
+            <option key={time} value={time}>
+              {time}
+            </option>
+          ))}
+        </select>
+        {timeError && <div className="error">{timeError}</div>}
+      </div>
+      <div className="form-field">
+        <label htmlFor="guests">Number of guests</label>
+        <input
+          type="number"
+          placeholder="1"
+          min="1"
+          max="10"
+          id="guests"
+          onChange={handleNumberChange}
+          value={number}
+        ></input>
+        {guest && <div className="error">{guest}</div>}
+      </div>
+      <div className="form-field">
+        <label htmlFor="occasion">Occasion</label>
+        <select id="occasion" onChange={handleOccasionChange} value={occasion}>
+          <option>Birthday</option>
+          <option>Anniversary</option>
+        </select>
+      </div>
       <Button
         className="btn booking-btn"
         type="submit"
