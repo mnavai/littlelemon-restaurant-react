@@ -67,8 +67,21 @@ ul {
 }
 
 /* Media query for screens with a maximum width of 768px (adjust as needed) */
-@media (max-width: 900px) {
+
+
+@media screen and (min-width:579px) and (max-width: 1180px){
   .nav-links {
+    display: none; /* Hide regular navigation links */
+  }
+
+  /* Show mobile menu button for smaller screens */
+  .mobile-menu-button {
+    display: block;
+  }
+}
+
+@media screen and (max-width:578px){
+    .nav-links {
     display: none; /* Hide regular navigation links */
   }
 
