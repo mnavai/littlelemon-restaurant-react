@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./BookingForm.css";
 import Button from "../Button/Button";
@@ -17,6 +17,11 @@ const BookingForm = ({
   const [number, setNumber] = useState(2);
   const [occasion, setOccasion] = useState("Anniversary");
 
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [dateError, setDateError] = useState("");
+  const [timeError, setTimeError] = useState("");
+
   const sendConfirmationEmail = async (
     name,
     email,
@@ -31,33 +36,75 @@ const BookingForm = ({
 
   const handleReservationSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate name and email
+    if (!name.trim()) {
+      setNameError("Name is required.");
+    } else {
+      setNameError("");
+    }
+
+    if (!email.trim()) {
+      setEmailError("Email is required.");
+    } else if (!emailIsValid(email)) {
+      setEmailError("Invalid email format.");
+    } else {
+      setEmailError("");
+    }
+
+    // Validate date and time
+    if (!selectedDate) {
+      setDateError("Date is required.");
+    } else {
+      setDateError("");
+    }
+
+    if (!selectedTime) {
+      setTimeError("Time must be selected.");
+    } else {
+      setTimeError("");
+    }
+
+    // Check if there are any validation errors
+    if (nameError || emailError || dateError || timeError) {
+      return; // Prevent form submission if there are errors
+    }
+
     await sendConfirmationEmail(name, email, selectedDate, selectedTime);
     navigate("/confirmationpage");
   };
 
   const handleNameChange = (e) => {
     setName(e.target.value);
+    setNameError("");
   };
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
+    setEmailError("");
   };
   const handleNumberChange = (e) => {
     setNumber(e.target.value);
   };
   const handleDateChange = (e) => {
     const newSelectedDate = e.target.value;
-    setSelectedTime(""); // Reset selectedTime when the date changes
-    onDateChange(newSelectedDate); // Notify the parent component of the date change
-    setDate(newSelectedDate); // Update the local state as well
+    setSelectedTime("");
+    onDateChange(newSelectedDate);
+    setDate(newSelectedDate);
+    setDateError("");
   };
   const handleOccasionChange = (e) => {
     setOccasion(e.target.value);
+  };
+
+  const emailIsValid = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
   return (
     <form className="booking-form" data-testid="booking-form">
       <label htmlFor="res-name" data-testid="name">
         Name
+        {nameError && <span className="error">{nameError}</span>}
       </label>
       <input
         type="name"
@@ -65,21 +112,30 @@ const BookingForm = ({
         onChange={handleNameChange}
         value={name}
       ></input>
-      <label htmlFor="res-email">Email</label>
+      <label htmlFor="res-email">
+        Email
+        {emailError && <span className="error">{emailError}</span>}
+      </label>
       <input
         type="email"
         id="res-email"
         onChange={handleEmailChange}
         value={email}
       ></input>
-      <label htmlFor="res-date">Choose date</label>
+      <label htmlFor="res-date">
+        Choose date
+        {dateError && <span className="error">{dateError}</span>}
+      </label>
       <input
         type="date"
         id="res-date"
         onChange={handleDateChange}
         value={selectedDate}
       ></input>
-      <label htmlFor="res-time">Choose time</label>
+      <label htmlFor="res-time">
+        Choose time
+        {timeError && <span className="error">{timeError}</span>}
+      </label>
       <select
         id="res-time"
         onChange={(e) => {
