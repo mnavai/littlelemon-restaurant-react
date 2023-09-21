@@ -75,8 +75,8 @@ const BookingForm = ({
       setTimeError("");
     }
 
-    if(!guest || guest < 1){
-      setGuestNoError("Number of guests is required.")
+    if (!guest || guest < 1) {
+      setGuestNoError("Number of guests is required.");
       hasError = true;
     } else {
       setGuestNoError("");
@@ -140,7 +140,7 @@ const BookingForm = ({
         {emailError && <div className="error">{emailError}</div>}
       </div>
       <div className="form-field">
-        <label htmlFor="res-date">Choose date</label>
+        <label htmlFor="res-date">Choose date </label>
         <input
           type="date"
           id="res-date"
