@@ -68,5 +68,27 @@ img {
   }
   .footer-bottom-section {
     width: 100%;
+  }
 }
+@media screen and (max-width: 578px) {
+  .footer-bottom-section {
+    margin-top: 22rem;
+    font-size: 14px;
+  }
+  .footer-top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .doormat-nav,
+  .contact-info,
+  .social-media {
+    text-align: center;
+  }
+  .footer-logo img {
+    width: 115px;
+    height: 115px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
