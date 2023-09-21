@@ -53,10 +53,10 @@ article {
 }
 @media screen and (min-width:579px) and (max-width: 1180px){
     .card-container {
-        width: 200px;
+        width: 300px;
     }
     .card-img{
-        height: 200px;
+        height: 300px;
     }
     .card-heading{
         display: flex;

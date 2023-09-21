@@ -37,7 +37,7 @@
     }
     .hightlights-heading{
         font-size: 30px;
-        margin-right: 10rem;
+        margin-right: 30rem;
         font-weight: bold;
     }
     .hightlights-btn{
@@ -48,9 +48,9 @@
         display: grid;
         grid-template-rows: 1fr 1fr; /* Two rows of equal height */
         grid-template-columns: 1fr 1fr; /* Two columns of equal width */
-        gap: 2rem; /* Adjust the gap between grid items as needed */
-        width: 300px; /* Set a fixed width for the grid container, or adjust as needed */
-        height: 900px; 
+        gap: 1rem; /* Adjust the gap between grid items as needed */
+        width: 600px; /* Set a fixed width for the grid container, or adjust as needed */
+        height: 1300px; 
     }
 
 }
