@@ -112,6 +112,7 @@ const BookingForm = ({
         className="btn booking-btn"
         type="submit"
         onClick={handleReservationSubmit}
+        aria-label="On Click"
       >
         Make a reservation
       </Button>
