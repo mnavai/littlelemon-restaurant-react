@@ -87,6 +87,10 @@ ul {
 @media screen and (max-width: 578px) {
   .nav-links {
     display: none; /* Hide regular navigation links */
+    font-size: 8px;
+    margin-right: .3rem;
+    gap:10px;
+    font-weight: bold;
   }
   .nav-logo img {
     margin-left: 3rem;
@@ -96,4 +100,11 @@ ul {
   .mobile-menu-button {
     display: block;
   }
+  .nav-links.show-mobile-menu {
+    top:80px;
+  }
+  .mobile-menu-button {
+    font-size: 40px;
+  }
+  
 }
