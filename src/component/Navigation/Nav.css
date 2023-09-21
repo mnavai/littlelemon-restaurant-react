@@ -1,35 +1,79 @@
-.nav-section{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    background-color: rgb(255, 255, 255);
-}
-.nav-logo{
-    flex: 1;
-}
-.nav-links{
-   
-    margin-right: 5rem;
-}
-.links-list{
-    list-style-type: none;
-    display: flex;
-    gap:20px;
-}
-ul{
-    list-style-type: none;
-}
-.link-item{
-    text-decoration: none;
+.nav-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  padding: 1rem 0; /* Add some padding for better spacing */
 }
 
-.nav-logo img{
-    margin-left: 4.7rem;
+.nav-logo {
+  flex: 1;
 }
-img {
-    width: 200px;
+
+.nav-links {
+  margin-right: 5rem;
+  display: flex;
+  gap: 20px;
 }
-.link{
-    text-decoration: none;
+
+.links-list {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.link-item {
+  text-decoration: none;
+}
+
+.nav-logo img {
+  margin-left: 4.7rem;
+  width: 200px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+/* Add styles for mobile menu button */
+.mobile-menu-button {
+  display: none; /* Initially hide the button */
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.mobile-menu-button.active {
+  color: #333; /* Change color when active */
+}
+
+/* Add styles to show/hide mobile menu links */
+.nav-links.show-mobile-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 70px; /* Adjust as needed to position the menu below the header */
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1000;
+}
+
+/* Media query for screens with a maximum width of 768px (adjust as needed) */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none; /* Hide regular navigation links */
+  }
+
+  /* Show mobile menu button for smaller screens */
+  .mobile-menu-button {
+    display: block;
+  }
 }
