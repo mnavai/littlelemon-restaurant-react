@@ -36,7 +36,7 @@
         margin-top: 1rem;
     }
     .hightlights-heading{
-        font-size: 30px;
+        font-size: 40px;
         margin-right: 30rem;
         font-weight: bold;
     }
@@ -48,7 +48,7 @@
         display: grid;
         grid-template-rows: 1fr 1fr; /* Two rows of equal height */
         grid-template-columns: 1fr 1fr; /* Two columns of equal width */
-        gap: 1rem; /* Adjust the gap between grid items as needed */
+        gap: 1.5rem; /* Adjust the gap between grid items as needed */
         width: 600px; /* Set a fixed width for the grid container, or adjust as needed */
         height: 1300px; 
     }
