@@ -1,3 +1,4 @@
+// BookingForm.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./BookingForm.css";
@@ -123,7 +124,6 @@ const BookingForm = ({
     }
   };
 
-
   const handleDateChange = (e) => {
     const newSelectedDate = e.target.value;
     setSelectedTime("");
@@ -148,8 +148,6 @@ const BookingForm = ({
     setSelectedTime(newSelectedTime);
   };
 
-
-
   const handleOccasionChange = (e) => {
     setOccasion(e.target.value);
   };
@@ -161,7 +159,7 @@ const BookingForm = ({
   return (
     <form className="booking-form" data-testid="booking-form">
       <div className="form-field">
-        <label htmlFor="res-name" data-testid="name">
+        <label htmlFor="res-name" data-testid="nameError">
           Name
         </label>
         <input
@@ -170,35 +168,49 @@ const BookingForm = ({
           onChange={handleNameChange}
           value={name}
         ></input>
-        {nameError && <div className="error">{nameError}</div>}
+        {nameError && (
+          <div className="error" data-testid="nameError">
+            {nameError}
+          </div>
+        )}
       </div>
       <div className="form-field">
-        <label htmlFor="res-email">Email</label>
+        <label htmlFor="res-email" data-testid="emailError">
+          Email
+        </label>
         <input
           type="email"
           id="res-email"
           onChange={handleEmailChange}
           value={email}
         ></input>
-        {emailError && <div className="error">{emailError}</div>}
+        {emailError && (
+          <div className="error" data-testid="emailError">
+            {emailError}
+          </div>
+        )}
       </div>
       <div className="form-field">
-        <label htmlFor="res-date">Choose date</label>
+        <label htmlFor="res-date" data-testid="dateError">
+          Choose date
+        </label>
         <input
           type="date"
           id="res-date"
           onChange={handleDateChange}
           value={selectedDate}
         ></input>
-        {dateError && <div className="error">{dateError}</div>}
+        {dateError && (
+          <div className="error" data-testid="dateError">
+            {dateError}
+          </div>
+        )}
       </div>
       <div className="form-field">
-        <label htmlFor="res-time">Choose time</label>
-        <select
-          id="res-time"
-          onChange={handleTimeChange}
-          value={selectedTime}
-        >
+        <label htmlFor="res-time" data-testid="timeError">
+          Choose time
+        </label>
+        <select id="res-time" onChange={handleTimeChange} value={selectedTime}>
           <option value="">Select a time</option>
           {availableTimes?.map((time) => (
             <option key={time} value={time}>
@@ -206,10 +218,16 @@ const BookingForm = ({
             </option>
           ))}
         </select>
-        {timeError && <div className="error">{timeError}</div>}
+        {timeError && (
+          <div className="error" data-testid="timeError">
+            {timeError}
+          </div>
+        )}
       </div>
       <div className="form-field">
-        <label htmlFor="guests">Number of guests</label>
+        <label htmlFor="guests" data-testid="guestError">
+          Number of guests
+        </label>
         <input
           type="number"
           placeholder="1"
@@ -219,7 +237,11 @@ const BookingForm = ({
           onChange={handleNumberChange}
           value={number}
         ></input>
-        {guestError && <div className="error">{guestError}</div>}
+        {guestError && (
+          <div className="error" data-testid="guestError">
+            {guestError}
+          </div>
+        )}
       </div>
       <div className="form-field">
         <label htmlFor="occasion">Occasion</label>

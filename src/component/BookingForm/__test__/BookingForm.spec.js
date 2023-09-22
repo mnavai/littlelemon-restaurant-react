@@ -1,10 +1,20 @@
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import BookingForm from "../BookingForm";
+import { MemoryRouter } from "react-router-dom";
 
 describe("BookingForm", () => {
   it("displays error messages for empty fields when submitting", () => {
-    render(<BookingForm />);
+    render(
+      <MemoryRouter>
+        <BookingForm
+          availableTimes={[]}
+          selectedTime=""
+          setSelectedTime={() => {}}
+          selectedDate=""
+        />
+      </MemoryRouter>
+    );
 
     // Select the form
     const form = screen.getByTestId("booking-form");
@@ -13,15 +23,24 @@ describe("BookingForm", () => {
     fireEvent.submit(form);
 
     // Check for error messages
-    expect(screen.getByText("Name is required.")).toBeInTheDocument();
-    expect(screen.getByText("Email is required.")).toBeInTheDocument();
-    expect(screen.getByText("Date is required.")).toBeInTheDocument();
-    expect(screen.getByText("Time must be selected.")).toBeInTheDocument();
-    expect(screen.getByText("Number of guests is required.")).toBeInTheDocument();
+    expect(screen.getByTestId("nameError")).toBeInTheDocument();
+    expect(screen.getByTestId("emailError")).toBeInTheDocument();
+    expect(screen.getByTestId("dateError")).toBeInTheDocument();
+    expect(screen.getByTestId("timeError")).toBeInTheDocument();
+    expect(screen.getByTestId("guestError")).toBeInTheDocument();
   });
 
   it("displays an error message for an invalid email format", () => {
-    render(<BookingForm />);
+    render(
+      <MemoryRouter>
+        <BookingForm
+          availableTimes={[]}
+          selectedTime=""
+          setSelectedTime={() => {}}
+          selectedDate=""
+        />
+      </MemoryRouter>
+    );
 
     // Select the email input field
     const emailInput = screen.getByLabelText("Email");
@@ -33,11 +52,22 @@ describe("BookingForm", () => {
     fireEvent.submit(screen.getByTestId("booking-form"));
 
     // Check for the email error message
-    expect(screen.getByText("Invalid email format.")).toBeInTheDocument();
+    expect(screen.getByTestId("emailError")).toHaveTextContent(
+      "Invalid email format."
+    );
   });
 
   it("does not display error messages when all fields are filled", () => {
-    render(<BookingForm />);
+    render(
+      <MemoryRouter>
+        <BookingForm
+          availableTimes={["12:00 PM", "1:00 PM"]}
+          selectedTime="12:00 PM"
+          setSelectedTime={() => {}}
+          selectedDate="2023-09-15"
+        />
+      </MemoryRouter>
+    );
 
     // Select form fields and fill them in
     const nameInput = screen.getByLabelText("Name");
@@ -55,11 +85,10 @@ describe("BookingForm", () => {
     // Submit the form
     fireEvent.submit(screen.getByTestId("booking-form"));
 
-    // Check that no error messages are displayed
-    expect(screen.queryByText("Name is required.")).toBeNull();
-    expect(screen.queryByText("Email is required.")).toBeNull();
-    expect(screen.queryByText("Date is required.")).toBeNull();
-    expect(screen.queryByText("Time must be selected.")).toBeNull();
-    expect(screen.queryByText("Number of guests is required.")).toBeNull();
+    expect(screen.queryByTestId("nameError")).toHaveTextContent("Name");
+    expect(screen.queryByTestId("emailError")).toHaveTextContent("Email");
+    expect(screen.queryByTestId("dateError")).toHaveTextContent("Choose date");
+    expect(screen.queryByTestId("timeError")).toHaveTextContent("Choose time");
+    expect(screen.queryByTestId("guestError")).toHaveTextContent("Number of guests");
   });
 });
