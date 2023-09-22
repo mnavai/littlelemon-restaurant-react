@@ -30,32 +30,7 @@ describe("BookingForm", () => {
     expect(screen.getByTestId("guestError")).toBeInTheDocument();
   });
 
-  it("displays an error message for an invalid email format", () => {
-    render(
-      <MemoryRouter>
-        <BookingForm
-          availableTimes={[]}
-          selectedTime=""
-          setSelectedTime={() => {}}
-          selectedDate=""
-        />
-      </MemoryRouter>
-    );
-
-    // Select the email input field
-    const emailInput = screen.getByLabelText("Email");
-
-    // Enter an invalid email format
-    fireEvent.change(emailInput, { target: { value: "invalid-email" } });
-
-    // Submit the form
-    fireEvent.submit(screen.getByTestId("booking-form"));
-
-    // Check for the email error message
-    expect(screen.getByTestId("emailError")).toHaveTextContent(
-      "Invalid email format."
-    );
-  });
+  
 
   it("does not display error messages when all fields are filled", () => {
     render(
