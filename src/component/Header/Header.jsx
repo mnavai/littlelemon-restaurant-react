@@ -1,6 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import Button from '../Button/Button';
 import './Header.css';
 const Header = () => {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate("/booking");
+    }
     return (
         <div className="header-section">
             <div className='header-left'>
@@ -10,7 +15,7 @@ const Header = () => {
                     <p className='header-text'>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
                 </div>
                 <div className='btn-group'>
-                    <Button className='btn header-btn' type='submit'>Reserve a Table</Button>
+                    <Button className='btn header-btn' type='submit' onClick={handleClick}>Reserve a Table</Button>
                 </div>
             </div>
             <div className='header-right'>
