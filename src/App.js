@@ -8,8 +8,9 @@ import "./App.css";
 
 const App = () => {
   const updateTimes = (state, action) => {
+    
     const { type, times } = action;
-
+    
     switch (type) {
       case "UPDATE_TIMES":
         return times; // Set available times to the times fetched from the API.
